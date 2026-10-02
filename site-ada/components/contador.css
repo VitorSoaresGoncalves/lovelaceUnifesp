@@ -1,10 +1,7 @@
 /* Estilos do <contador-evento> */
 .contador { display: flex; gap: 12px; }
-.contador__cel {
-  display: flex; flex-direction: column; align-items: center; min-width: 78px; padding: 12px 8px;
-  background: var(--amarelo); color: var(--tinta); border: 3px solid var(--tinta); box-shadow: var(--sombra-pequena);
-}
-.contador__cel span { font: 700 2.2rem/1 var(--fonte-titulo); font-variant-numeric: tabular-nums; }
-.contador__cel small { font-size: .72rem; font-weight: 600; margin-top: 4px; }
-.contador__fim { font: 700 1.6rem var(--fonte-titulo); margin: 0; }
-@media (max-width: 420px) { .contador { gap: 8px; } .contador__cel { min-width: 66px; } .contador__cel span { font-size: 1.8rem; } }
+.contador__cel { display: flex; flex-direction: column; align-items: center; min-width: 82px; padding: 16px 8px 12px; border-radius: 22px; background: var(--tinta); color: var(--branco); }
+.contador__cel span { font: 800 2.4rem/1 var(--fonte-titulo); font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.contador__cel small { font: 700 .72rem var(--fonte-texto); margin-top: 6px; color: var(--amarelo); }
+.contador__fim { font: 800 1.7rem var(--fonte-titulo); margin: 0; }
+@media (max-width: 420px) { .contador { gap: 8px; } .contador__cel { min-width: 66px; border-radius: 18px; } .contador__cel span { font-size: 1.8rem; } }

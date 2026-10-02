@@ -10,11 +10,28 @@
 }
 .carrossel__btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--tinta); }
 
-.carrossel__faixa {
+.carrossel__faixa { 
   --recuo: max(var(--gutter), calc((100vw - var(--largura)) / 2 + var(--gutter)));
-  display: flex; gap: 28px; list-style: none; margin: 0; padding: 0 var(--recuo) 24px;
-  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--recuo);
-  scrollbar-width: thin;
+
+  display: flex; 
+  gap: 28px; 
+  list-style: none; 
+  margin: 0; 
+  padding: 0 var(--recuo) 24px; 
+
+  overflow-x: auto; 
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory; 
+  scroll-padding-inline: var(--recuo);
+
+  /* Esconde a barra de rolagem */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carrossel__faixa::-webkit-scrollbar {
+  display: none;
 }
 .membro { flex: 0 0 clamp(210px, 22vw, 250px); scroll-snap-align: start; }
 .membro__foto { box-shadow: 6px 6px 0 var(--cor); margin-bottom: 22px; }

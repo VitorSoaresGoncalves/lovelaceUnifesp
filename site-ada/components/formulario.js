@@ -30,7 +30,7 @@
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       validarIdade();
-      if (form.elements['website'].value) return;       // honeypot anti-robô
+      if (form.elements['website'].value) return;     
       if (!form.reportValidity()) return;
 
       var dados = new URLSearchParams(new FormData(form));
@@ -45,7 +45,7 @@
         sucesso.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      if (!S.formularioUrl) {                            // modo demonstração
+      if (!S.formularioUrl) {                           
         setTimeout(function () { document.getElementById('aviso-demo').hidden = false; concluir(); }, 500);
         return;
       }

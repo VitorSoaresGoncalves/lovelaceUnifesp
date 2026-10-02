@@ -1,8 +1,4 @@
-/* =========================================================
-   config.js — CARREGAR PRIMEIRO em todas as páginas.
-   Tudo que muda (nomes, links, instagrams, membros, apoiadores)
-   fica aqui. Edite só este arquivo para atualizar o site inteiro.
-   ========================================================= */
+
 (function () {
   var script = document.currentScript;
   var root = new URL('../', script.src).href; // raiz do site, funciona em file:// e hospedado
@@ -17,12 +13,23 @@
 
     evento: {
       // Ajuste data e horário da SUA sede (formato ISO com fuso de Brasília)
-      data: '2026-10-03T09:30:00-03:00',
+      data: '2026-10-03T08:00:00-03:00',   // início = credenciamento
       dataTexto: 'Sábado, 3 de outubro de 2026',
       local: '[Local da sede / campus]',
       idadeMin: 10,
       idadeMax: 12
     },
+
+    // Cronograma previsto (horários 24h, "HH:MM"). cor: roxo | vermelho | amarelo | verde | azul | neutro
+    cronograma: [
+      { inicio: '08:00', fim: '08:30', titulo: 'Credenciamento e recepção das participantes', cor: 'roxo' },
+      { inicio: '08:30', fim: '09:00', titulo: 'Abertura do evento', cor: 'vermelho' },
+      { inicio: '09:00', fim: '09:30', titulo: 'Palestra', cor: 'amarelo' },
+      { inicio: '09:30', fim: '10:45', titulo: 'Oficina STEM 1', cor: 'verde' },
+      { inicio: '10:45', fim: '11:15', titulo: 'Intervalo para lanche', cor: 'neutro' },
+      { inicio: '11:15', fim: '12:30', titulo: 'Oficina STEM 2', cor: 'azul' },
+      { inicio: '12:30', fim: '13:00', titulo: 'Discussão sobre as atividades e encerramento', cor: 'roxo' }
+    ],
 
     // Links externos (troque os "#" pelos endereços reais)
     links: {
