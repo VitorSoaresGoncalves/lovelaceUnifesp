@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quem somos | Jornada Ada Lovelace · Unifesp</title>
+  <link rel="stylesheet" href="../padrao.css">
+  <link rel="stylesheet" href="../components/componentes.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+  <site-header></site-header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina">
+      <div class="container">
+        <h1>Quem <span class="marca-texto">somos</span></h1>
+        <p class="lead">Um grupo da Unifesp que acredita que ciência também é lugar de menina.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao">
+      <div class="container bloco">
+        <div class="bloco__texto">
+          <h2>O projeto</h2>
+          <p class="lead">[Resumo do projeto em uma frase.]</p>
+          <p>[Conte como o projeto nasceu, quem participa e o que já fizeram. Dois ou três parágrafos curtos.]</p>
+        </div>
+        <div class="bloco__midia"><div class="imagem-ph imagem-ph--roxo " style="--ratio:4 / 3" role="img" aria-label="Espaço para imagem: foto do grupo reunido">Foto da equipe · 4:3<small>foto do grupo reunido</small></div></div>
+      </div>
+    </section>
+
+    <section class="secao secao--creme">
+      <div class="container">
+        <h2>O que fazemos</h2>
+        <div class="grade grade--3" style="margin-top:40px">
+          <article class="cartao cartao--vermelho"><h3>[Oficinas STEM]</h3><p>[Descrição curta da atividade.]</p></article>
+          <article class="cartao cartao--azul"><h3>[Extensão universitária]</h3><p>[Descrição curta da atividade.]</p></article>
+          <article class="cartao cartao--verde"><h3>[Parcerias]</h3><p>[Descrição curta da atividade.]</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container bloco bloco--invertido">
+        <div class="bloco__texto">
+          <h2>Nossa participação na Jornada</h2>
+          <p>[Explique o papel da equipe na Jornada Ada Lovelace Day e como a sede foi organizada.]</p>
+          <div class="botoes"><a class="botao botao--vermelho" data-link="ada" href="#">Conheça a Jornada ↗</a></div>
+        </div>
+        <div class="bloco__midia"><div class="imagem-ph imagem-ph--verde " style="--ratio:4 / 3" role="img" aria-label="Espaço para imagem: edição anterior da Jornada">Foto · 4:3<small>edição anterior da Jornada</small></div></div>
+      </div>
+    </section>
+
+    <carrossel-membros titulo="Nossa equipe" texto="[Frase curta sobre a equipe.]"></carrossel-membros>
+
+    <section class="secao secao--roxo secao--binario">
+      <div class="container" style="text-align:center">
+        <h2 style="margin-inline:auto;max-width:20ch">Venha fazer parte da Jornada</h2>
+        <p class="lead" style="margin-inline:auto">Inscreva sua menina na sede da Unifesp.</p>
+        <div class="botoes" style="justify-content:center">
+          <a class="botao botao--vermelho botao--grande" href="formulario.html">Inscreva-se</a>
+          <a class="botao botao--branco botao--grande" data-link="ada" href="#">Site oficial da Jornada ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <!-- config.js sempre primeiro -->
+  <script src="../components/config.js"></script>
+  <script src="../components/header.js"></script>
+  <script src="../components/footer.js"></script>
+  <script src="../components/carrossel-membros.js"></script>
+  <script src="../components/contador.js"></script>
+  <script src="../components/cronograma-evento.js"></script>
+  <script src="../components/formulario.js"></script>
+</body>
+</html>
