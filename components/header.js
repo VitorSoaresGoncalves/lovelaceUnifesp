@@ -38,8 +38,8 @@
           '</div></div></div>' +
         '<header class="cabecalho"><div class="container cabecalho__in">' +
           '<a class="marca" href="' + S.url('index.html') + '">' +
-            '<span class="logo-ph" aria-hidden="true">LOGO<br>UNIFESP</span>' +
-            '<span class="logo-ph" aria-hidden="true">LOGO<br>ADA</span>' +
+            S.logo(S.logos.unifesp, 'marca__logo') +
+            S.logo(S.logos.ada, 'marca__logo') +
             '<span class="marca__nome"><strong>' + S.nome + '</strong><small>' + S.subtitulo + '</small></span>' +
           '</a>' +
           '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">' + ico.menu + '</button>' +

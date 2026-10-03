@@ -14,7 +14,11 @@
     evento: {
       // Ajuste data e horário da SUA sede (formato ISO com fuso de Brasília)
       data: '2026-10-03T08:00:00-03:00',   // início = credenciamento
+      // Para mudar a data: altere data, dataTexto, dataCurta e diaSemana.
       dataTexto: 'Sábado, 3 de outubro de 2026',
+      dataCurta: '3 de outubro',
+      diaSemana: 'sábado',
+      horario: 'das 8h às 13h',
       local: '[Local da sede / campus]',
       idadeMin: 10,
       idadeMax: 12
@@ -45,7 +49,18 @@
       { nome: '@unifesp', url: 'https://www.instagram.com/unifespoficial/' }
     ],
 
-    apoiadores: ['Apoiador 1', 'Apoiador 2', 'Apoiador 3', 'Apoiador 4'],
+     logos: {
+      unifesp: { nome: 'Unifesp', img: 'images/logo-unifesp.png', link: 'https://portal.unifesp.br' },            
+      ada: {nome: 'Ada Lovelace Day', img: 'images/logo-ada.png', link: 'https://adalovelace.net.ar'}          
+    },
+
+    // APOIADORES (rodapé): nome, img e url do site oficial
+    apoiadores: [
+      { nome: 'Apoiador 1', img: '', url: '#' },
+      { nome: 'Apoiador 2', img: '', url: '#' },
+      { nome: 'Apoiador 3', img: '', url: '#' },
+      { nome: 'Apoiador 4', img: '', url: '#' }
+    ],
 
     membros: [
       { nome: '[Nome Sobrenome]', funcao: 'Coordenação', curso: '[Curso / Departamento]' },
@@ -62,8 +77,39 @@
     formularioUrl: ''
   };
 
-  // Preenche automaticamente <a data-link="ada|unifesp|primos">
+  // Gera uma logo clicável: imagem real (se houver) ou espaço tracejado, sempre como link
+  window.SITE.logo = function (item, classe) {
+  var url = item.link || item.url || '#';
+
+  // Se "link" for uma chave de SITE.links, usa o endereço correspondente
+  if (window.SITE.links[url]) {
+    url = window.SITE.links[url];
+  }
+
+  var externo = /^https?:/.test(url);
+
+  var attrs =
+    'href="' + url + '"' +
+    (externo ? ' target="_blank" rel="noopener"' : '') +
+    ' aria-label="' + item.nome + (externo ? ' (abre em nova aba)' : '') + '"';
+
+  if (item.img) {
+    return '<a class="logo-link ' + (classe || '') + '" ' + attrs + '>' +
+      '<img src="' + window.SITE.url(item.img) + '" alt="' + item.nome + '">' +
+      '</a>';
+  }
+
+  return '<a class="logo-ph ' + (classe || '') + '" ' + attrs + '>' +
+    'LOGO<br>' + item.nome +
+    '</a>';
+};
+
+  // Preenche <a data-link="ada|unifesp|primos"> e <span data-evento="dataTexto|dataCurta|diaSemana|horario|local">
   document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-evento]').forEach(function (el) {
+      var v = window.SITE.evento[el.dataset.evento];
+      if (v) el.textContent = v;
+    });
     document.querySelectorAll('a[data-link]').forEach(function (a) {
       var destino = window.SITE.links[a.dataset.link];
       if (destino) {

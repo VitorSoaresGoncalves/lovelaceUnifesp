@@ -5,7 +5,7 @@
 .topo-faixa a { text-decoration: none; display: inline-flex; font-weight: 600; }
 .topo-faixa a:hover { text-decoration: underline; }
 
-.cabecalho { position: sticky; top: 0; z-index: 50; background: var(--grafite); color: var(--branco); --foco: var(--amarelo); border-bottom: 3px solid var(--amarelo); }
+.cabecalho { position: sticky; top: 0; z-index: 50; background: var(--grafite1); color: var(--branco); --foco: var(--amarelo); border-bottom: 3px solid var(--amarelo); }
 .cabecalho__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
 
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; }
