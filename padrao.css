@@ -294,6 +294,123 @@ a.logo-ph { text-decoration: none; color: inherit; }
   box-shadow: none;
 }
 
+.imagem-experimento {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  border-radius: 12px;
+  border: 3px solid var(--branco);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+.quando {
+  display: grid;
+  grid-template-columns: 1.1fr 0.75fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+  width: 100%;
+  min-height: 300px;
+}
+
+.quando__imagem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0;
+}
+
+.quando__imagem img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.quando__texto {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quando__texto h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.quando__texto .lead {
+  margin-bottom: 15px;
+}
+
+.quando > cronograma-evento {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   Seção "Quando" mais fina, com a imagem colada na margem inferior
+   (colar no FINAL do padrao.css; precisa da classe secao--quando no <section>)
+   ========================================================= */
+.secao--quando { padding: 36px 0 0; }                         /* sem espaço embaixo: a imagem encosta na borda */
+.secao--quando .quando {
+  grid-template-columns: 1fr 1.15fr .8fr;
+  gap: 28px; min-height: 0; align-items: end;
+}
+.secao--quando .quando__texto,
+.secao--quando .quando > cronograma-evento { align-self: center; padding-bottom: 36px; }
+.secao--quando .quando__texto h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 10px; }
+.secao--quando .quando__texto .lead { font-size: 1.05rem; margin-bottom: 14px; }
+.secao--quando .quando__texto contador-evento { margin-top: 0; }
+
+
+.secao--quando .contador { gap: 8px; }
+.secao--quando .contador__cel { min-width: 66px; padding: 11px 6px 8px; border-radius: 16px; }
+.secao--quando .contador__cel span { font-size: 1.8rem; }
+.secao--quando .contador__cel small { font-size: .66rem; margin-top: 4px; }
+.secao--quando .cronograma { padding: 18px 20px 14px; width: 100%; }
+.secao--quando .cronograma__cab { font-size: 1.1rem; margin-bottom: 8px; }
+.secao--quando .cronograma__barra { height: 9px; margin-bottom: 8px; }
+.secao--quando .cronograma__item { padding: 4px 0; gap: 12px; grid-template-columns: 7.8rem 1fr; }
+.secao--quando .cronograma__hora { width: 7.8rem; padding: 3px 8px; font-size: .75rem; }
+.secao--quando .cronograma__titulo { font-size: .86rem; }
+
+.secao--quando .quando__imagem { align-self: end; align-items: flex-end; line-height: 0; height: auto; }
+.secao--quando .quando__imagem img { width: auto; height: auto; max-width: 100%; max-height: 340px; display: block; margin: 0; }
+
+ 
+.imagem-foto { position: relative; 
+  z-index: 1; 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  border-radius: 36px 36px 36px 10px; 
+  position: relative;
+  border: 3px solid var(--branco);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+.bloco--invertido .imagem-foto { border-radius: 36px 36px 10px 36px; }
+
+@media (max-width: 1000px) {
+  .secao--quando .quando { grid-template-columns: 1fr; gap: 22px; }
+  .secao--quando .quando > cronograma-evento { grid-column: auto; }
+  .secao--quando .quando__texto { padding-bottom: 0; }
+  .secao--quando .quando > cronograma-evento { padding-bottom: 0; }
+  .secao--quando .quando__imagem { justify-content: center; padding-top: 6px; }
+  .secao--quando .quando__imagem img { max-height: 300px; }
+}
+@media (max-width: 700px) { .secao--quando { padding-top: 32px; } .secao--quando .quando__texto { text-align: center; } .secao--quando .contador { justify-content: center; } }
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 960px) {
   .hero__grid, .bloco, .cabecalho-secao, .quando { grid-template-columns: 1fr; }
@@ -335,4 +452,38 @@ a.logo-ph { text-decoration: none; color: inherit; }
   .rodape__logos { gap: 7px; } 
   .rodape__logos .rodape__logo { width: 78px; height: 46px; padding: 6px 8px; } 
   .rodape__logos .rodape__logo img { max-width: 62px; max-height: 32px; } 
+}
+
+@media (max-width: 1000px) {
+  .quando {
+    grid-template-columns: 1fr 0.8fr;
+    gap: 30px;
+  }
+
+  .quando__texto {
+    text-align: left;
+  }
+
+  .quando > cronograma-evento {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .quando {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .quando__imagem {
+    width: 100%;
+  }
+
+  .quando__texto {
+    text-align: center;
+  }
+
+  .quando > cronograma-evento {
+    grid-column: auto;
+  }
 }
