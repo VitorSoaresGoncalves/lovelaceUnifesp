@@ -6,8 +6,7 @@
    roxo = violeta · vermelho = rosa · azul = cobalto
    verde = esmeralda · amarelo = sol · creme = areia
    ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @font-face { font-family: 'Saira'; src: url('fonts/Saira-ExtraLight.ttf') format('truetype'); font-weight: 200; font-display: swap; }
 @font-face { font-family: 'Saira'; src: url('fonts/Saira-Regular.ttf')    format('truetype'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Saira'; src: url('fonts/Saira-Medium.ttf')     format('truetype'); font-weight: 500; font-display: swap; }
@@ -366,18 +365,18 @@ a.logo-ph { text-decoration: none; color: inherit; }
 }
 
 /* =========================================================
-   Seção "Quando" mais fina, com a imagem colada na margem inferior
+   Seção "Quando" mais fina
    (colar no FINAL do padrao.css; precisa da classe secao--quando no <section>)
    ========================================================= */
-.secao--quando { padding: 36px 0 0; }                         /* sem espaço embaixo: a imagem encosta na borda */
+.secao--quando { padding: 56px 0; }                          
 .secao--quando .quando {
-  grid-template-columns: 1fr 1.15fr .8fr;
-  gap: 28px; min-height: 0; align-items: end;
+  grid-template-columns: 1fr 1.1fr 1.05fr;                  
+  gap: 28px; min-height: 0; align-items: center;
 }
 .secao--quando .quando__texto,
-.secao--quando .quando > cronograma-evento { align-self: center; padding-bottom: 36px; }
-.secao--quando .quando__texto h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 10px; }
-.secao--quando .quando__texto .lead { font-size: 1.05rem; margin-bottom: 14px; }
+.secao--quando .quando > cronograma-evento { align-self: center; }
+.secao--quando .quando__texto h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); margin-bottom: 10px; }
+.secao--quando .quando__texto .lead { font-size: 1rem; margin-bottom: 14px; }
 .secao--quando .quando__texto contador-evento { margin-top: 0; }
 
 
@@ -385,15 +384,17 @@ a.logo-ph { text-decoration: none; color: inherit; }
 .secao--quando .contador__cel { min-width: 66px; padding: 11px 6px 8px; border-radius: 16px; }
 .secao--quando .contador__cel span { font-size: 1.8rem; }
 .secao--quando .contador__cel small { font-size: .66rem; margin-top: 4px; }
-.secao--quando .cronograma { padding: 18px 20px 14px; width: 100%; }
-.secao--quando .cronograma__cab { font-size: 1.1rem; margin-bottom: 8px; }
-.secao--quando .cronograma__barra { height: 9px; margin-bottom: 8px; }
-.secao--quando .cronograma__item { padding: 4px 0; gap: 12px; grid-template-columns: 7.8rem 1fr; }
-.secao--quando .cronograma__hora { width: 7.8rem; padding: 3px 8px; font-size: .75rem; }
-.secao--quando .cronograma__titulo { font-size: .86rem; }
+.secao--quando .cronograma { padding: 0; width: 100%; background: none; }   /* sem a caixa branca grande */
+.secao--quando .cronograma__cab { font-size: 1.35rem; margin-bottom: 10px; }
+.secao--quando .cronograma__barra { height: 18px; padding: 4px; margin-bottom: 12px; background: var(--branco); border-radius: 999px; }
+.secao--quando .cronograma__lista { display: grid; gap: 8px; }               /* espaço entre os blocos */
+.secao--quando .cronograma__item { padding: 9px 16px 9px 9px; gap: 14px; grid-template-columns: 7.4rem 1fr; background: var(--branco); border-radius: 16px; }
+.secao--quando .cronograma__hora { width: 7.4rem; padding: 5px 8px; font-size: .78rem; }
+.secao--quando .cronograma__titulo { font-size: .9rem; line-height: 1.3; }
+.secao--quando .cronograma__item--agora { box-shadow: 0 0 0 3px var(--vermelho); }
 
-.secao--quando .quando__imagem { align-self: end; align-items: flex-end; line-height: 0; height: auto; }
-.secao--quando .quando__imagem img { width: auto; height: auto; max-width: 100%; max-height: 340px; display: block; margin: 0; }
+.secao--quando .quando__imagem { align-self: center; align-items: center; line-height: 0; height: auto; }
+.secao--quando .quando__imagem img { width: auto; height: auto; max-width: 100%; max-height: 460px; display: block; margin: 0; border-radius: 18px; box-shadow: 0 14px 30px -12px rgba(30, 26, 60, .45); }
 
  
 .imagem-foto { position: relative; 
@@ -409,13 +410,18 @@ a.logo-ph { text-decoration: none; color: inherit; }
 .bloco--invertido .imagem-foto { border-radius: 36px 36px 10px 36px; }
 
 @media (max-width: 1000px) {
-  .secao--quando .quando { grid-template-columns: 1fr; gap: 22px; }
-  .secao--quando .quando > cronograma-evento { grid-column: auto; }
-  .secao--quando .quando__texto { padding-bottom: 0; }
-  .secao--quando .quando > cronograma-evento { padding-bottom: 0; }
-  .secao--quando .quando__imagem { justify-content: center; padding-top: 6px; }
-  .secao--quando .quando__imagem img { max-height: 300px; }
+  .secao--quando .quando { grid-template-columns: 1fr 1fr; gap: 32px; }   /* cartaz e texto lado a lado */
+  .secao--quando .quando > cronograma-evento { grid-column: 1 / -1; }       /* cronograma embaixo, largura toda */
+  .secao--quando .quando__imagem { justify-content: center; }
+  .secao--quando .quando__imagem img { max-height: 420px; }
 }
+@media (max-width: 700px) {
+  .secao--quando { padding: 40px 0; }
+  .secao--quando .quando { grid-template-columns: 1fr; gap: 28px; }
+  .secao--quando .quando__texto { text-align: center; }
+  .secao--quando .contador { justify-content: center; }
+}
+
 @media (max-width: 700px) { .secao--quando { padding-top: 32px; } .secao--quando .quando__texto { text-align: center; } .secao--quando .contador { justify-content: center; } }
 
 /* ---------- Responsivo ---------- */
@@ -494,3 +500,4 @@ a.logo-ph { text-decoration: none; color: inherit; }
     grid-column: auto;
   }
 }
+
