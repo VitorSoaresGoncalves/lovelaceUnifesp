@@ -7,7 +7,7 @@
     root: root,
     url: function (caminho) { return root + caminho; },
 
-    nome: '[Nome do projeto]',
+    nome: 'STEM para meninas',
     subtitulo: 'Jornada Ada Lovelace · Unifesp',
     descricaoCurta: 'Projeto de extensão da Unifesp que leva ciência, tecnologia e matemática para meninas de 10 a 12 anos.',
 

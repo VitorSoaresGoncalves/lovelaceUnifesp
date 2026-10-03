@@ -12,8 +12,8 @@
 .marca .logo-ph { color: var(--branco); }
 .marca__nome { display: flex; flex-direction: column; margin-left: 6px; line-height: 1.15; }
 
-.marca__nome strong { white-space: nowrap; font: 700 1.05rem var(--fonte-titulo); }
-.marca__nome small { font-size: .72rem; opacity: .75; }
+.marca__nome strong { white-space: wrap; font: 700 .8rem var(--fonte-titulo); }
+.marca__nome small { font-size: .62rem; opacity: .75; }
 
 .menu { display: flex; align-items: center; gap: 20px; }
 .menu > ul { display: flex; align-items: center; gap: 18px; list-style: none; margin: 0; padding: 0; }
