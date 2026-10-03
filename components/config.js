@@ -56,10 +56,10 @@
 
     // APOIADORES (rodapé): nome, img e url do site oficial
     apoiadores: [
-      { nome: 'Apoiador 1', img: '', url: '#' },
-      { nome: 'Apoiador 2', img: '', url: '#' },
-      { nome: 'Apoiador 3', img: '', url: '#' },
-      { nome: 'Apoiador 4', img: '', url: '#' }
+      { nome: 'IMPA', img: 'images/logo-impa.png', url: 'https://impa.br/' },
+      { nome: 'FGV EMAp', img: 'images/logo-fgv.png', url: 'https://emap.fgv.br/' },
+      { nome: 'SBMAC', img: 'images/logo-sbmac.png', url: 'https://www.sbmac.org.br/' },
+     // { nome: 'Apoiador 4', img: '', url: '#' }
     ],
 
     membros: [

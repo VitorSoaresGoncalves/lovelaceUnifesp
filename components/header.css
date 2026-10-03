@@ -8,7 +8,7 @@
 .cabecalho { position: sticky; top: 0; z-index: 50; background: var(--grafite1); color: var(--branco); --foco: var(--amarelo); border-bottom: 3px solid var(--amarelo); }
 .cabecalho__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
 
-.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.marca { display: flex; align-items: center; gap: 8px; text-decoration: none; }
 .marca .logo-ph { color: var(--branco); }
 .marca__nome { display: flex; flex-direction: column; margin-left: 6px; line-height: 1.15; }
 
@@ -17,7 +17,7 @@
 
 .menu { display: flex; align-items: center; gap: 20px; }
 .menu > ul { display: flex; align-items: center; gap: 18px; list-style: none; margin: 0; padding: 0; }
-.menu a, .menu__mais summary { text-decoration: none; font: 600 .92rem var(--fonte-titulo); white-space: nowrap; }
+.menu a, .menu__mais summary { text-decoration: none; font: 600 .82rem var(--fonte-titulo); white-space: nowrap; }
 .menu > ul > li > a { padding: 8px 0; border-bottom: 3px solid transparent; }
 .menu > ul > li > a:hover { color: var(--amarelo); }
 .menu a[aria-current="page"] { color: var(--amarelo); border-bottom-color: var(--amarelo); }
