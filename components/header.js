@@ -31,11 +31,6 @@
       }).join('');
 
       this.innerHTML =
-        '<div class="topo-faixa"><div class="container topo-faixa__in">' +
-          '<span class="topo-faixa__texto">' + S.evento.dataTexto + '</span>' +
-          '<div class="topo-faixa__links">' +
-            '<a href="' + S.links.ada + '" target="_blank" rel="noopener">Site oficial da Jornada ↗</a>' + insta +
-          '</div></div></div>' +
         '<header class="cabecalho"><div class="container cabecalho__in">' +
           '<a class="marca" href="' + S.url('index.html') + '">' +
             S.logo(S.logos.unifespBranco, 'marca__logo') +

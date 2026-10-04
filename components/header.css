@@ -17,17 +17,15 @@
 
 .menu { display: flex; align-items: center; gap: 20px; }
 .menu > ul { display: flex; align-items: center; gap: 18px; list-style: none; margin: 0; padding: 0; }
-.menu a, .menu__mais summary { text-decoration: none; font: 600 .82rem var(--fonte-titulo); white-space: nowrap; }
+.menu a, .menu__mais summary { text-decoration: none; font: 600 .85rem var(--fonte-titulo); white-space: nowrap; }
 .menu > ul > li > a { padding: 8px 0; border-bottom: 3px solid transparent; }
 .menu > ul > li > a:hover { color: var(--amarelo); }
 .menu a[aria-current="page"] { color: var(--amarelo); border-bottom-color: var(--amarelo); }
 
 .menu__mais { position: relative; }
-.menu__mais summary { list-style: none; cursor: pointer; font: 600 .92rem var(--fonte-titulo); padding: 8px 0; }
-.menu__mais summary::-webkit-details-marker { display: none; }
+.menu__mais summary { list-style: none; cursor: pointer; font: 600 .85rem var(--fonte-titulo); padding: 8px 0; }.menu__mais summary::-webkit-details-marker { display: none; }
 .menu__mais summary::after { content: " ▾"; font-size: .8em; }
-.menu__mais[open] summary { color: var(--amarelo); }
-.menu__mais ul {
+.menu__mais[open] summary, .menu__mais summary:hover { color: var(--amarelo); }.menu__mais ul {
   position: absolute; right: 0; top: calc(100% + 10px); min-width: 280px; z-index: 5;
   list-style: none; margin: 0; padding: 8px; background: var(--branco); color: var(--tinta);
   border: 3px solid var(--tinta); box-shadow: var(--sombra); --foco: var(--azul);

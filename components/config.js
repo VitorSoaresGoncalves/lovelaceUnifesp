@@ -43,9 +43,9 @@
     },
 
     instagram: [
-      { nome: '@numeros primos e criptografia', url: 'https://www.instagram.com/numerosprimos_cripto/' },
-      { nome: '@ada.lovelace.day', url: 'https://www.instagram.com/jornadasada/' },
-      { nome: '@ada.lovelace.unifesp', url: 'https://www.instagram.com/adalovelace.unifesp/' },
+      { nome: '@numerosprimos_cripto', url: 'https://www.instagram.com/numerosprimos_cripto/' },
+      { nome: '@jornadasada', url: 'https://www.instagram.com/jornadasada/' },
+      { nome: '@adalovelace.unifesp', url: 'https://www.instagram.com/adalovelace.unifesp/' },
       { nome: '@unifesp', url: 'https://www.instagram.com/unifespoficial/' }
     ],
 
@@ -61,6 +61,7 @@
       { nome: 'IMPA', img: 'images/logo-impa.png', url: 'https://impa.br/' },
       { nome: 'FGV EMAp', img: 'images/logo-fgv.png', url: 'https://emap.fgv.br/' },
       { nome: 'SBMAC', img: 'images/logo-sbmac.png', url: 'https://www.sbmac.org.br/' },
+      { nome: 'SEGLABS', img: 'images/logo-seglabs.png', url: 'https://seglabs.io'},
      // { nome: 'Apoiador 4', img: '', url: '#' }
     ],
 
