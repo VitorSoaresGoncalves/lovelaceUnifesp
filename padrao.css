@@ -20,7 +20,8 @@
   --roxo: #7a21ee;
   --roxo-uva: #8f06b9;
   --roxo-escuro: #3F22C4;
-  --vermelho: #D92B66;
+  --vermelho: #e23737;
+  --vermelho-claro: #e75959;
   --azul: #2150D9;
   --verde: #0B7F63;
   --amarelo: #FFC53D;
@@ -408,6 +409,12 @@ a.logo-ph { text-decoration: none; color: inherit; }
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
 }
 .bloco--invertido .imagem-foto { border-radius: 36px 36px 10px 36px; }
+
+.foto-cientista {
+  display: block; width: 100%; aspect-ratio: 4 / 5;
+  object-fit: cover; object-position: center top;
+  border-radius: 36px 36px 36px 10px;
+}
 
 @media (max-width: 1000px) {
   .secao--quando .quando { grid-template-columns: 1fr 1fr; gap: 32px; }   /* cartaz e texto lado a lado */
