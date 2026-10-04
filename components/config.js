@@ -65,6 +65,15 @@
      // { nome: 'Apoiador 4', img: '', url: '#' }
     ],
 
+    organizacao: {
+      titulo: 'Organização',
+      logos: [
+        { nome: 'Unifesp', img: 'images/logo-unifesp.png', url: 'https://www.unifesp.br' },
+        { nome: 'Mulheres da SBMAC', img: 'images/sbmacm-logo.png', url: 'https://www.mulheressbmac.com.br' },
+        { nome: 'MIC', img: 'images/mic-logo.jpeg', url: 'https://www.sjc.sp.gov.br/servicos/educacao-e-cidadania/museu-interativo-de-ciencias' }
+      ]
+    },
+
     membros: [
       { nome: '[Nome Sobrenome]', funcao: 'Coordenação', curso: '[Curso / Departamento]' },
       { nome: '[Nome Sobrenome]', funcao: 'Oficineira', curso: '[Curso]' },
@@ -74,6 +83,12 @@
       { nome: '[Nome Sobrenome]', funcao: 'Design', curso: '[Curso]' },
       { nome: '[Nome Sobrenome]', funcao: 'Oficineiro', curso: '[Curso]' },
       { nome: '[Nome Sobrenome]', funcao: 'Apoio', curso: '[Curso]' }
+    ],
+
+        // CRÉDITOS DO SITE (rodapé): nome e link do LinkedIn de quem desenvolveu
+    desenvolvedores: [
+      { nome: 'Vitor Soares', linkedin: 'https://www.linkedin.com/in/vitor-soares-goncalves-807213366/' },
+      { nome: 'Clara Yumi', linkedin: 'https://www.linkedin.com/in/clara-yumi-shiraishi/' }
     ],
 
     // URL do Google Apps Script publicado (formulário). Vazio = modo demonstração.

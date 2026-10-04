@@ -2,6 +2,17 @@
 (function () {
   var S = window.SITE;
   var cores = ['roxo', 'vermelho', 'azul', 'verde', 'amarelo'];
+
+  // Logo clicável das organizadoras (imagem real ou espaço tracejado)
+  function logoOrg(l) {
+    var url = l.url || (l.link && S.links && S.links[l.link]) || '#';
+    var ext = /^https?:/.test(url);
+    var attrs = 'href="' + url + '"' + (ext ? ' target="_blank" rel="noopener"' : '') +
+      ' aria-label="' + l.nome + (ext ? ' (abre em nova aba)' : '') + '"';
+    return l.img
+      ? '<a class="organizacao__logo" ' + attrs + '><img src="' + S.url(l.img) + '" alt="' + l.nome + '"></a>'
+      : '<a class="organizacao__logo organizacao__logo--ph" ' + attrs + '>LOGO<br>' + l.nome + '</a>';
+  }
   var seta = function (d) {
     return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + (d < 0 ? 'm15 5-7 7 7 7' : 'm9 5 7 7-7 7') + '"/></svg>';
   };
@@ -17,6 +28,20 @@
           '<h3>' + m.nome + '</h3><p class="membro__funcao">' + m.funcao + '</p><p class="membro__curso">' + m.curso + '</p></li>';
       }).join('');
 
+      // Bloco "Organização": usa S.organizacao do config.js; se não existir, mostra 3 espaços para logos.
+      // Para desligar em uma página: <carrossel-membros organizacao="nao">
+      var O = S.organizacao || { titulo: 'Organização', logos: [
+        { nome: 'Unifesp', link: 'unifesp' }, { nome: 'Mulheres da SBMAC' }, { nome: 'MIC' }
+      ] };
+      var org = '';
+      if (this.getAttribute('organizacao') !== 'nao') {
+        org = '<div class="container"><div class="organizacao">' + (O.imagem
+          ? '<img class="organizacao__imagem" src="' + S.url(O.imagem) + '" alt="' + (O.alt || 'Organização do evento') + '">'
+          : '<h3 class="organizacao__titulo">' + (O.titulo || 'Organização') + '</h3>' +
+            '<ul class="organizacao__logos">' + O.logos.map(function (l) { return '<li>' + logoOrg(l) + '</li>'; }).join('') + '</ul>') +
+          '</div></div>';
+      }
+
       this.innerHTML =
         '<section class="secao secao--creme carrossel" aria-roledescription="carrossel" aria-label="' + titulo + '">' +
           '<div class="container carrossel__topo">' +
@@ -27,6 +52,7 @@
             '</div>' +
           '</div>' +
           '<ul class="carrossel__faixa" tabindex="0" aria-label="Lista de membros">' + cards + '</ul>' +
+          org +
         '</section>';
 
       var faixa = this.querySelector('.carrossel__faixa');
