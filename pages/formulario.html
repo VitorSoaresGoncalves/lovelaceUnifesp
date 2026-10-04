@@ -29,7 +29,7 @@
             <fieldset class="form-grupo">
               <legend>Sobre a menina</legend>
               <div class="campos">
-                <div class="campo campo--cheio"><label for="nome_participante">Nome completo</label><input id="nome_participante" name="nome_participante" type="text" required autocomplete="off"></div>
+                <div class="campo campo--cheio"><label for="nome_participante">Nome completo</label><input id="nome_participante" name="nome_participante" type="text" required autocomplete="off" data-nome="Nome da participante"></div>
                 <div class="campo"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="date" required ><small>Idade de 10 a 12 anos no dia da Jornada.</small></div>
                 <div class="campo"><label for="ano_escolar">Ano escolar</label><select id="ano_escolar" name="ano_escolar" required><option value="">Selecione</option><option>4º ano</option><option>5º ano</option><option>6º ano</option><option>7º ano</option><option>8º ano</option></select></div>
                 <div class="campo campo--cheio"><label for="escola">Escola</label><input id="escola" name="escola" type="text" required ></div>
@@ -39,7 +39,8 @@
             <fieldset class="form-grupo">
               <legend>Sobre o responsável</legend>
               <div class="campos">
-                <div class="campo campo--cheio"><label for="nome_responsavel">Nome completo</label><input id="nome_responsavel" name="nome_responsavel" type="text" required autocomplete="name"></div>
+                <div class="campo campo--cheio"><label for="nome_responsavel">Nome completo</label><input id="nome_responsavel" name="nome_responsavel" type="text" required autocomplete="name" data-nome="Nome do responsável"></div>
+                <div class="campo campo--cheio"><label for="documento_responsavel">Número do documento de identidade</label><input id="documento_responsavel" name="documento_responsavel" type="text" required autocomplete="off"></div>
                 <div class="campo"><label for="parentesco">Parentesco</label><select id="parentesco" name="parentesco" required><option value="">Selecione</option><option>Mãe</option><option>Pai</option><option>Avó / avô</option><option>Tia / tio</option><option>Responsável legal</option><option>Outro</option></select></div>
                 <div class="campo"><label for="telefone">Telefone / WhatsApp</label><input id="telefone" name="telefone" type="tel" required autocomplete="tel" placeholder="(11) 90000-0000"></div>
                 <div class="campo campo--cheio"><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"><small>Enviaremos a confirmação de recebimento para este e-mail.</small></div>
@@ -50,15 +51,13 @@
               <legend>Informações extras</legend>
               <div class="campos">
                 <div class="campo campo--cheio"><label for="observacoes">Alguma necessidade de acessibilidade? <span class="opcional">(opcional)</span></label><textarea id="observacoes" name="observacoes"></textarea></div>
-                <div class="campo campo--cheio"><label for="origem">Como conheceu a Jornada?</label><select id="origem" name="origem"><option value="">Selecione</option><option>Escola</option><option>Instagram</option><option>Amigos ou família</option><option>Site da Unifesp</option><option>Outro</option></select></div>
+                <div class="campo campo--cheio"><label for="origem">Como conheceu a Jornada? <span class="opcional">(opcional)</span></label><select id="origem" name="origem"><option value="">Selecione</option><option>Escola</option><option>Instagram</option><option>Amigos ou família</option><option>Site da Unifesp</option><option>Outro</option></select></div>
               </div>
             </fieldset>
 
             <fieldset class="form-grupo">
               <legend>Autorizações</legend>
-              <label class="check"><input type="checkbox" name="consentimento_dados" value="sim" required><span>Sou responsável legal pela menina e autorizo o uso dos dados informados para a organização da Jornada, conforme a LGPD. [Link para o aviso de privacidade]</span></label>
-              <label class="check"><input type="checkbox" name="autorizacao_imagem" value="sim"><span>Autorizo o uso de fotos e vídeos da menina em divulgações do projeto. <span class="opcional">(opcional)</span></span></label>
-            </fieldset>
+              <label class="check"><input type="checkbox" name="consentimento_dados" value="sim" required data-nome="Autorização de uso dos dados"><span>Sou responsável legal pela menina e autorizo o uso dos dados informados para a organização da Jornada, conforme a LGPD.</span></label>              <label class="check"><input type="checkbox" name="autorizacao_imagem" value="sim" required data-nome="Autorização de uso de imagem"><span>Autorizo o uso de fotos e vídeos da menina em divulgações do projeto.</span></label>            </fieldset>
 
             <div class="form-acoes">
               <button class="botao botao--vermelho botao--grande" type="submit">Enviar inscrição</button>
