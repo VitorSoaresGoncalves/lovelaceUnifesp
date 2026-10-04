@@ -50,7 +50,9 @@
     ],
 
      logos: {
-      unifesp: { nome: 'Unifesp', img: 'images/logo-unifesp.png', link: 'https://portal.unifesp.br' },            
+      unifesp: { nome: 'Unifesp', img: 'images/logo-unifesp.png', link: 'https://portal.unifesp.br' },
+      unifespBranco: { nome: 'Unifesp', img: 'images/logo-unifesp-branco.png', link: 'https://portal.unifesp.br' },
+      adaBranco: { nome: 'Ada Lovelace Day', img: 'images/logo-ada-branco.png', link: 'https://adalovelace.net.ar' },            
       ada: {nome: 'Ada Lovelace Day', img: 'images/logo-ada.png', link: 'https://adalovelace.net.ar'}          
     },
 
