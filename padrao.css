@@ -178,6 +178,7 @@ a.logo-ph { text-decoration: none; color: inherit; }
 .hero__fatos { display: flex; flex-wrap: wrap; gap: 12px; margin: 36px 0 0; padding: 0; list-style: none; }
 .hero__fatos li { display: flex; flex-direction: column; padding: 12px 20px; border-radius: 20px; background: var(--branco); font: 800 1.15rem/1.15 var(--fonte-titulo); letter-spacing: -.02em; }
 .hero__fatos small { font: 500 .82rem/1.4 var(--fonte-texto); letter-spacing: 0; opacity: .65; margin-top: 3px; }
+.hero-quemS { background-color: var(--verde-unifesp); }
 
 /* foto principal em arco, com círculo e pontos ao fundo */
 .hero__midia { padding: 0 0 0 0; max-width: 460px; justify-self: center; width: 100%; }
