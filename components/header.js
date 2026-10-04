@@ -9,7 +9,7 @@
     ['Início', 'index.html'],
     ['Quem somos', 'pages/quem-somos.html'],
     ['Mulheres na STEM', 'pages/mulheres-na-stem.html'],
-    ['Unifesp e Primos', 'pages/unifesp.html']
+   // ['Unifesp e Primos', 'pages/unifesp.html']
   ];
 
   class SiteHeader extends HTMLElement {
