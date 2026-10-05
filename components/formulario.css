@@ -93,3 +93,15 @@
 }
 
 .check.com-erro > span::after { content: "Campo obrigatório"; display: block; margin-top: 4px; font-weight: 700; font-size: .85rem; }
+
+/* ------------------- lista de espera ----------------------- */
+.form-carregando { padding: 28px 30px; border-radius: var(--raio); background: var(--branco); font-weight: 600; }
+
+.fila { padding: clamp(28px, 4vw, 44px); border-radius: var(--raio); background: var(--branco); }
+.fila h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .4em; }
+.fila > p { margin-bottom: 24px; }
+.fila__linha { display: flex; flex-wrap: wrap; gap: 12px; }
+.fila__linha input { flex: 1 1 240px; width: auto; }
+.fila__mensagem { margin: 4px 0 0; min-height: 1.5em; font-weight: 700; }
+.fila__mensagem--ok { color: var(--verde); }
+.fila__mensagem--erro { color: var(--erro); }

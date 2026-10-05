@@ -7,7 +7,8 @@
     var status = document.getElementById('form-status');
     var sucesso = document.getElementById('form-sucesso');
     var botao = form.querySelector('[type="submit"]');
-
+    var carregando = document.getElementById('form-carregando');
+    var fila = document.getElementById('fila-espera');
 
     // Idade que a menina terá no dia do evento
     function idadeNoEvento(iso) {
@@ -26,12 +27,23 @@
       return numeros >= 10 && numeros <= 13;
     }
 
-    // E-mail: precisa ter o formato algo@algo.algo, sem espaços
+    // E-mail formato tal@tal.tal
     function emailValido(valor) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
     }
 
-   
+    // Documento de identidade (RG, passaporte...): precisa ter pelo menos 5 números.
+
+    function documentoValido(valor) {
+      if (/[^0-9A-Za-z.\-\/\s]/.test(valor)) return false;
+      return valor.replace(/\D/g, '').length >= 5;
+    }
+
+
+    /* ---------- Ajudantes ---------- */
+
+    // Nome do campo para mostrar no aviso: usa o data-nome (se tiver)
+    // ou o texto do <label> do campo
     function nomeDoCampo(el) {
       if (el.dataset.nome) return el.dataset.nome;
       var label = form.querySelector('label[for="' + el.id + '"]');
@@ -39,7 +51,7 @@
       return label.textContent.replace('(opcional)', '').trim();
     }
 
-
+  
     function caixaDoCampo(el) {
       return el.closest('.campo, .check');
     }
@@ -59,11 +71,12 @@
       el.removeAttribute('aria-invalid');
     }
 
-    
+    // Quando a pessoa mexe no campo, o vermelho some
     form.addEventListener('input', function (ev) { limparErro(ev.target); });
     form.addEventListener('change', function (ev) { limparErro(ev.target); });
 
-    /* ---------- Aviso no topo da tela ---------- */
+
+    /* ---------- Aviso erro ---------- */
 
     var aviso = document.createElement('div');
     aviso.className = 'aviso-erro';
@@ -83,9 +96,9 @@
       fechar.addEventListener('click', esconderAviso);
       aviso.appendChild(fechar);
 
-            linhas.forEach(function (linha, i) {
+      linhas.forEach(function (linha, i) {
         var p = document.createElement('p');
-        if (i === 0) {
+        if (i === 0) {                     // a primeira linha começa com "Atenção!" em negrito
           var titulo = document.createElement('strong');
           titulo.textContent = 'Atenção! ';
           p.appendChild(titulo);
@@ -98,13 +111,13 @@
         p.appendChild(document.createTextNode(linha.texto));
         aviso.appendChild(p);
       });
-      
+
       aviso.hidden = true;
-      void aviso.offsetWidth;           
+      void aviso.offsetWidth;            
       aviso.hidden = false;
 
       clearTimeout(timerAviso);
-      timerAviso = setTimeout(esconderAviso, 10000);   
+      timerAviso = setTimeout(esconderAviso, 10000);   // some sozinho depois de 10 segundos
     }
 
     function esconderAviso() {
@@ -112,11 +125,51 @@
       aviso.hidden = true;
     }
 
-    
+
+    /* ---------- Formulário ou lista de espera? ---------- */
+
+    var decidido = false;
+
+    function mostrarFormulario() {
+      if (decidido) return;
+      decidido = true;
+      carregando.hidden = true;
+      form.hidden = false;
+    }
+
+    function mostrarFila() {
+      decidido = true;
+      esconderAviso();
+      carregando.hidden = true;
+      form.hidden = true;
+      fila.hidden = false;
+    }
+
+    if (location.search.indexOf('fila') !== -1) {
+      // formulario.html?fila mostra a lista de espera, para testar sem esperar lotar
+      mostrarFila();
+    } else if (!S.formularioUrl) {
+      mostrarFormulario();               
+    } else {
+      // Pergunta para a planilha se ainda tem vaga
+      form.hidden = true;
+      carregando.hidden = false;
+      fetch(S.formularioUrl)
+        .then(function (resposta) { return resposta.json(); })
+        .then(function (r) {
+          if (r.status === 'lotado') mostrarFila();
+          else mostrarFormulario();
+        })
+        .catch(mostrarFormulario);       
+      setTimeout(mostrarFormulario, 8000);   
+    }
+
+
+    /* ---------- Envio da inscrição ---------- */
 
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
-      if (form.elements['website'].value) return;     
+      if (form.elements['website'].value) return;     // campo escondido preenchido = robô
 
       var faltando = [];
       var invalidos = [];
@@ -132,9 +185,12 @@
           faltando.push(nomeDoCampo(el));
           temProblema = true;
         } else if (el.type === 'tel' && !telefoneValido(valor)) {
-            invalidos.push(nomeDoCampo(el));
+          invalidos.push(nomeDoCampo(el));
           temProblema = true;
         } else if (el.type === 'email' && !emailValido(valor)) {
+          invalidos.push(nomeDoCampo(el));
+          temProblema = true;
+        } else if ((el.name === 'documento_participante' || el.name === 'documento_responsavel') && !documentoValido(valor)) {
           invalidos.push(nomeDoCampo(el));
           temProblema = true;
         } else if (el.name === 'nascimento') {
@@ -178,12 +234,78 @@
         setTimeout(function () { document.getElementById('aviso-demo').hidden = false; concluir(); }, 500);
         return;
       }
-      fetch(S.formularioUrl, { method: 'POST', mode: 'no-cors', body: dados })
-        .then(concluir)
+      fetch(S.formularioUrl, { method: 'POST', body: dados })
+        .then(function (resposta) { return resposta.json(); })
+        .then(function (r) {
+          if (r.status === 'ok') {
+            concluir();
+          } else if (r.status === 'lotado') {
+            // as vagas acabaram enquanto a pessoa preenchia: troca para a lista de espera
+            status.textContent = '';
+            mostrarFila();
+            fila.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            throw new Error(r.status);
+          }
+        })
         .catch(function () {
           botao.disabled = false;
           status.textContent = 'Não foi possível enviar. Verifique sua conexão e tente de novo.';
         });
+    });
+
+
+    /* ---------- Lista de espera ---------- */
+
+    var formFila = document.getElementById('form-fila');
+    var emailFila = document.getElementById('email_fila');
+    var mensagemFila = document.getElementById('fila-mensagem');
+    var botaoFila = formFila.querySelector('[type="submit"]');
+    var filaDemo = [];                   // só usada no modo demonstração
+
+    // Mostra a frase embaixo da caixa de e-mail: tipo 'ok' (verde) ou 'erro' (vermelho)
+    function respostaFila(tipo, texto) {
+      mensagemFila.textContent = texto;
+      mensagemFila.className = 'fila__mensagem fila__mensagem--' + tipo;
+      if (tipo === 'erro') marcarErro(emailFila);
+      else limparErro(emailFila);
+    }
+
+    // Quando a pessoa volta a digitar, o vermelho e a frase somem
+    emailFila.addEventListener('input', function () {
+      limparErro(emailFila);
+      mensagemFila.textContent = '';
+    });
+
+    formFila.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var email = emailFila.value.trim().toLowerCase();
+      if (!email) return respostaFila('erro', 'Digite seu e-mail.');
+      if (!emailValido(email)) return respostaFila('erro', 'E-mail inválido.');
+
+      botaoFila.disabled = true;
+      mensagemFila.className = 'fila__mensagem';
+      mensagemFila.textContent = 'Enviando…';
+
+      function tratar(resultado) {
+        botaoFila.disabled = false;
+        if (resultado === 'ok') respostaFila('ok', 'Você está na lista de espera!');
+        else if (resultado === 'repetido') respostaFila('erro', 'Esse e-mail já está na fila.');
+        else respostaFila('erro', 'Não foi possível enviar. Verifique sua conexão e tente de novo.');
+      }
+
+      if (!S.formularioUrl) {            
+        setTimeout(function () {
+          if (filaDemo.indexOf(email) !== -1) return tratar('repetido');
+          filaDemo.push(email);
+          tratar('ok');
+        }, 400);
+        return;
+      }
+      fetch(S.formularioUrl, { method: 'POST', body: new URLSearchParams({ tipo: 'fila', email: email }) })
+        .then(function (resposta) { return resposta.json(); })
+        .then(function (r) { tratar(r.status); })
+        .catch(function () { tratar('erro'); });
     });
   });
 })();

@@ -13,13 +13,13 @@
 
     evento: {
       // Ajuste data e horário da SUA sede (formato ISO com fuso de Brasília)
-      data: '2026-10-03T08:00:00-03:00',   // início = credenciamento
+      data: '2026-11-07T08:00:00-03:00',   // início = credenciamento
       // Para mudar a data: altere data, dataTexto, dataCurta e diaSemana.
-      dataTexto: 'Sábado, 3 de outubro de 2026',
-      dataCurta: '3 de outubro',
+      dataTexto: 'Sábado, 7 de novembro de 2026',
+      dataCurta: '7 de novembro',
       diaSemana: 'sábado',
       horario: 'das 8h às 13h',
-      local: '[Local da sede / campus]',
+      local: 'MIC - Museu Interativo de Ciências',
       idadeMin: 10,
       idadeMax: 12
     },
@@ -77,7 +77,7 @@
     ],
 
     // URL do Google Apps Script publicado (formulário). Vazio = modo demonstração.
-    formularioUrl: ''
+    formularioUrl: 'https://script.google.com/macros/s/AKfycbydholvDmKnOBhmClzWzr0B9rSY4RzdDyzdB2Iv5iayR2Tl1T22L8rkRYdNPn2qL-yg9Q/exec'
   };
 
   // Gera uma logo clicável: imagem real (se houver) ou espaço tracejado, sempre como link
