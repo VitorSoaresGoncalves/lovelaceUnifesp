@@ -34,6 +34,7 @@
 }
 .membro { flex: 0 0 clamp(210px, 22vw, 250px); scroll-snap-align: start; }
 .membro__foto { box-shadow: 6px 6px 0 var(--cor); margin-bottom: 18px; }
+.membro__foto--img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%; border-radius: 36px 36px 36px 10px; }
 .membro h3 { font-size: 1.15rem; margin-bottom: .15em; }
 .membro p { margin: 0; font-size: .92rem; }
 .membro__funcao { font-weight: 700; color: var(--roxo); }

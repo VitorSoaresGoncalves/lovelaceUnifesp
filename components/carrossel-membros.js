@@ -23,8 +23,10 @@
       var texto = this.getAttribute('texto') || '';
       var cards = S.membros.map(function (m, i) {
         var cor = cores[i % cores.length];
-        return '<li class="membro">' +
-          '<div class="imagem-ph imagem-ph--' + cor + ' membro__foto" style="--ratio:4/5" role="img" aria-label="Espaço para foto de ' + m.nome + '">Foto · 4:5<small>retrato</small></div>' +
+        var foto = m.img
+          ? '<img class="membro__foto membro__foto--img" style="--cor: var(--' + cor + ')" src="' + S.url(m.img) + '" alt="Foto de ' + m.nome + '" loading="lazy">'
+          : '<div class="imagem-ph imagem-ph--' + cor + ' membro__foto" style="--ratio:4/5" role="img" aria-label="Espaço para foto de ' + m.nome + '">Foto · 4:5<small>retrato</small></div>';
+        return '<li class="membro">' + foto +
           '<h3>' + m.nome + '</h3><p class="membro__funcao">' + m.funcao + '</p><p class="membro__curso">' + m.curso + '</p></li>';
       }).join('');
 
