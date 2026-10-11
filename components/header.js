@@ -32,11 +32,13 @@
 
       this.innerHTML =
         '<header class="cabecalho"><div class="container cabecalho__in">' +
-          '<a class="marca" href="' + S.url('index.html') + '">' +
+          '<div class="marca">' +
             S.logo(S.logos.unifespBranco, 'marca__logo') +
-            S.logo(S.logos.adaBranco, 'marca__logo') +
-            '<span class="marca__nome"><strong>' + S.nome + '</strong><small>' + S.subtitulo + '</small></span>' +
-          '</a>' +
+            '<a class="marca" href="' + S.url('index.html') + '">' +
+              '<span class="logo-link marca__logo"><img src="' + S.url(S.logos.adaBranco.img) + '" alt="Ada Lovelace Day"></span>' +
+              '<span class="marca__nome"><strong>' + S.nome + '</strong><small>' + S.subtitulo + '</small></span>' +
+            '</a>' +
+          '</div>' +
           '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">' + ico.menu + '</button>' +
           '<nav class="menu" id="menu-principal" aria-label="Principal">' +
             '<ul>' + itens +
