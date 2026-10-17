@@ -82,7 +82,8 @@
       { nome: 'Maíra Matos',      img: 'images/maira_matos.jpeg',      funcao: 'Professora Apoiadora', curso: 'Professora de Matemática, ama fazer amigurumis e assitir à filmes e séries.' },
       { nome: 'Noelma Santos',    img: 'images/noelma.jpeg',           funcao: 'Professora Apoiadora', curso: 'Pedagoga, e nas horas vagas aprendo a cuidar de suculentas e orquídeas!' },
       { nome: 'Camila de Morais', img: 'images/camila_de_morais.jpeg', funcao: 'Professora Apoiadora', curso: 'Professora de ciências e da arte da investigação, ama séries policiais e rock n roll.' },
-      { nome: 'Leonardo',         img: 'images/leonardo.jpeg',         funcao: 'Professor Apoiador', curso: 'Leonardo, professor de Matemática e fã de comédia.' },
+      { nome: 'Ana Maria',        img: 'images/ana_maria.jpeg',          funcao: 'Professora Apoiadora', curso: 'Professora de Física, apaixonada por cachorros, natureza e viagens. Recarrego minhas energias em momentos tranquilos de conexão e afeto familiar.' },
+      { nome: 'Leonardo Romancini', img: 'images/leonardo.jpeg',         funcao: 'Professor Apoiador', curso: 'Professor de Matemática e fã de comédia.'},
       { nome: 'Clara Yumi',       img: 'images/clara.jpeg',            funcao: 'Monitora e Dev do Site', curso: 'Estudante de matemática computacional e dançarina que ama gatos.' },
       { nome: 'Malu Balbo',       img: 'images/malu.jpeg',             funcao: 'Monitora', curso: 'Estudante de ciência e tecnologia que adora filmes.' },
       { nome: 'Ellen Yukie',      img: 'images/ellen.jpeg',            funcao: 'Monitora', curso: 'Estudante do Bacharelado Interdisciplinar de Ciência e Tecnologia, que gosta de quebra-cabeças e jogos online.' },
@@ -90,6 +91,7 @@
       { nome: 'Giovanna Roquetti', img: 'images/giovanna.jpeg',        funcao: 'Monitora', curso: 'Estudante de direito, gosto de artes, videogames e do meu gato.' },
       { nome: 'Juliana Sene',     img: 'images/juliana.jpeg',          funcao: 'Monitora', curso: 'Profissional de Finanças, estudante de matemática. Gosto de pintura e micronacionalismo.' },
       { nome: 'Ana Clara',        img: 'images/ana_clara.jpg',        funcao: 'Monitora', curso: 'Estagiária na Embraer, estudante de Engenharia da Computação. Gosto de ginástica artística, gastronomia e cinema bélico.' },
+      
       { nome: 'Vitor Soares',     img: 'images/vitor_soares.jpeg',     funcao: 'Dev do Site', curso: 'Desenvolvedor, entusiasta de matemática e segurança da informação.' }
     ],
 
