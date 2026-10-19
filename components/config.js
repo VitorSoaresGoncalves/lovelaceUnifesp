@@ -89,9 +89,9 @@
       { nome: 'Ellen Yukie',      img: 'images/ellen.jpeg',            funcao: 'Monitora', curso: 'Estudante do Bacharelado Interdisciplinar de Ciência e Tecnologia, que gosta de quebra-cabeças e jogos online.' },
       { nome: 'Heloíse Martinez', img: 'images/helo.jpeg',             funcao: 'Monitora', curso: 'Estudante de engenharia de computação e entusiasta de aquarismo e dígitos de pi.' },
       { nome: 'Giovanna Roquetti', img: 'images/giovanna.jpeg',        funcao: 'Monitora', curso: 'Estudante de direito, gosto de artes, videogames e do meu gato.' },
+      {nome: 'Ana Júlia', img: 'images/ana_julia.jpg', funcao: 'Monitora', curso: 'Estudante de Matemática Aplicada e estagiária de Gestão de Riscos Cibernéticos. Gosto de literatura clássica e jogos de estratégia.' },
       { nome: 'Juliana Sene',     img: 'images/juliana.jpeg',          funcao: 'Monitora', curso: 'Profissional de Finanças, estudante de matemática. Gosto de pintura e micronacionalismo.' },
       { nome: 'Ana Clara',        img: 'images/ana_clara.jpg',        funcao: 'Monitora', curso: 'Estagiária na Embraer, estudante de Engenharia da Computação. Gosto de ginástica artística, gastronomia e cinema bélico.' },
-      
       { nome: 'Vitor Soares',     img: 'images/vitor_soares.jpeg',     funcao: 'Dev do Site', curso: 'Desenvolvedor, entusiasta de matemática e segurança da informação.' }
     ],
 
